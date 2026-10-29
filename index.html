@@ -47,7 +47,13 @@
   .radios input { width:auto; margin:0; }
   .radios.missing { outline:2px solid var(--err); outline-offset:4px; border-radius:6px; }
   details { margin-bottom:10px; } summary { cursor:pointer; color:var(--accent); font-weight:600; margin-bottom:10px; }
-  .decl { font-size:13px; color:var(--muted); margin:0 0 12px; padding-left:18px; }
+  .decl { font-size:13.5px; margin:0 0 14px; }
+  .decl p { margin:0 0 6px; }
+  .decl > ul { margin:0; padding-left:20px; }
+  .decl > ul > li { margin-bottom:8px; }
+  .decl ul.arrows { list-style:none; padding-left:22px; margin:6px 0 0; font-weight:400; }
+  .decl ul.arrows li { position:relative; margin-bottom:2px; }
+  .decl ul.arrows li::before { content:"➢"; position:absolute; left:-20px; }
   .sigwrap { position:relative; border:1px dashed var(--line); border-radius:8px; background:#fff; height:150px; touch-action:none; }
   canvas { width:100%; height:100%; display:block; border-radius:8px; cursor:crosshair; }
   .sighint { position:absolute; inset:0; display:grid; place-items:center; color:#9aa7b6; pointer-events:none; font-size:14px; }
@@ -138,12 +144,22 @@
 
     <section>
       <h2>Signature</h2>
-      <ul class="decl">
-        <li>The information given in this form is true, complete and accurate.</li>
-        <li>I will comply with the requirements of the origin and destination countries, provide COVID-19 documentation and the Ebola Attestation (inbound U.S. flights) if required, and respect Challenge Airlines (BE) regulations.</li>
-        <li>I consent to give my personal data to CHG BE Flight Operations for issuing the flight tickets (stored one year; deletion requests to chgbooking@challenge-group.com).</li>
-        <li>I have read and understood the Self Briefing Brochure (CHG-5003).</li>
-      </ul>
+      <div class="decl">
+        <p><strong>With my signature:</strong></p>
+        <ul>
+          <li><strong>I confirm that the information given in this form is true, complete and accurate</strong></li>
+          <li><strong>I declare that I will</strong>
+            <ul class="arrows">
+              <li>Comply with all requirements of the origin and destination countries,</li>
+              <li>Provide CHG with documentation relating to COVID-19, if required,</li>
+              <li>Provide CHG with the Ebola Attestation completed for each inbound U.S. flight, and</li>
+              <li>Also respect the regulations of Challenge Airlines (BE) during my trip.</li>
+            </ul>
+          </li>
+          <li><strong>I hereby consent to give my personal data to the CHG BE Flight Operations department for the use of issuing the flight tickets.<br>The data are stored for the duration of one year on the Monday board "CHG Flight Operations &gt; Request for Supernumerary Ticket" as mentioned in the FOP-005 procedure. If you want your data to be deleted from the system, please address your request to chgbooking@challenge-group.com.</strong></li>
+          <li><strong>I’ve also read and understood the Self Briefing Brochure.</strong></li>
+        </ul>
+      </div>
       <div class="sigwrap"><canvas id="sig"></canvas><div class="sighint" id="sighint">Sign here</div></div>
       <div class="row"><span style="font-size:12px;color:var(--muted)">Draw with your mouse or finger</span><button type="button" class="link" id="clear">Clear</button></div>
       <label class="check"><input type="checkbox" name="agree" required> I have read and accept the declarations above.</label>
